@@ -1,0 +1,264 @@
+<form method="POST"> {% csrf_token %}
+    <!-- barra buscar-->
+    <div class="row"> 
+        <div class="col-4">
+            <div class="row"> 
+                <div class="form-group col-6 mb-0 mt-0 pl-1">
+                    <H7 class="card-title text-primary">Tipo de frete</H7>
+                    <div class="form-floating">
+                        <select class="form-select text-primary" id="modalidadeFrete" name="modalidadeFrete" aria-label="Floating label select example">
+                          <option value="0" selected>Selecione a modalidade do frete</option>
+                          <option value="1">CIF (Remetente)</option>
+                          <option value="2">FOB (Destinatário)</option>
+                          <option value="3">CONSIGNATÁRIO (Terceiro) </option>
+                        </select>
+                        <label for="modalidadeFrete">Selecione a modalidade do frete</label>
+                      </div>                    
+                </div>
+                <div class="form-group col-6">
+                    <div class="form-group col-12 mb-0 mt-0 pl-1">
+                        <H7 class="card-title text-primary">Rota</H7>
+                        <div class="form-floating">
+                            <select class="form-select text-primary" id="rotasDtc" name="rotasDtc" aria-label="Floating label select example">
+                              <option selected value="0">Selecione a rota</option>
+                            </select>
+                            <label for="modalidadeFrete">Selecione rota</label>
+                        </div>                    
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class='col-8 pl-1'>
+            <h7 class="card-title text-primary">Tomador de Serviço</h7>
+                <div class="row">  
+                    <div class='col-3 pl-1'>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control text-primary" id="cnpjTomador" name="cnpjTomador" 
+                            placeholder="Cnpj/Cpf do Tomador" readOnly>
+                            <label for="cnpjTomador" class="text-primary">Cnpj/Cpf do Tomador</label>
+                        </div>            
+                    </div>
+                    <div class='col-3 pl-0'>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control text-primary" id="razaoTomador" name="razaoTomador"
+                            placeholder="Nome/Razão Social" readOnly>
+                            <label for="razaoTomador" class="text-primary">Nome/Razão Social</label>
+                        </div>                        
+                    </div>
+                    
+                    <div class=" form-group col-6 mt-0 pl-0">
+                        <div class="settings-trigger">
+                            <div class="input-group col-12 pl-1">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control text-primary" id="numPed" name="numPed"
+                                     placeholder="Nº Pré Dtc" align=right>
+                                    <label for="numPed" class="text-primary">Nº Pré Dtc</label>
+                                </div> 
+                              <div class="input-group-append">
+                                  <button class="btn btn-primary"
+                                  data-toggle="tooltip" data-placement="top" title="Buscar" id="btnBuscaDtc">
+                                    <i class="ti-search"></i>
+                                  </button>
+                              </div>
+                              <div class="input-group-append">
+                                <button class="btn btn-secondary" 
+                                data-toggle="tooltip" data-placement="top" title="Novo" id="btnNovo">
+                                  <i class="ti-write"></i>
+                                </button>
+                              </div>              
+                              <button type="button" class="btn btn-success btn-rounded "
+                              data-toggle="tooltip" data-placement="top" title="Salvar" id="salvaDtc">
+                                <i class="ti-save"></i>
+                              </button>
+                              <button type="button" class="btn btn-danger btn-rounded" 
+                              data-toggle="tooltip" data-placement="top" title="Excluir" id="excluiDtc">
+                                <i class="ti-trash"></i>
+                              </button>    
+                            </div>                                     
+                        </div>
+                      </div>
+
+
+                </div>
+        </div>
+    </div>
+<div class="row">
+    
+</div>
+
+<div class="row">
+    {% comment %} Direita {% endcomment %}
+    <div class="form-group col-4  pl-1">
+        <h4 class = "card-title text-primary">Remetente</h4>
+        <div class="form-group row mb-1">
+            <div class="col-sm-8 mb-1 pr-1 input-group">
+                <input type="text" class="form-control form-control-sm" 
+                id="cnpjRem" name="cnpjRem" placeholder="Cnpj/Cpf">
+                <div class="input-group-append">
+                    <button class="btn btn-danger form-control-sm"  id="btnLimpaCnpjRem" type="button">
+                        <i class="ti-eraser"></i>   
+                    </button> 
+                    <button class="btn btn-primary form-control-sm"  id="btnCnpjRem" onclick="openModal('mdlCadParceiros')" type="button">
+                        <i class="ti-search"></i>   
+                    </button>   
+                </div>
+            </div>
+            <div class="col-sm-4 mb-1 pl-0   form-group">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Inscr. Est." name="inscRem" id="inscRem" readOnly disabled>
+            </div>            
+            <div class="col-sm-6 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Nome/Razão" name="razaoRem" id="razaoRem" readOnly disabled>
+            </div>
+            <div class="col-sm-6 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Nome Fantasia" name="fantasiaRem" id="fantasiaRem" readOnly disabled>
+            </div>
+            <div class="col-sm-4 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Cep" name="cepRem" id="cepRem" readOnly disabled>
+            </div>
+            <div class="col-sm-8 mb-1 form-group pl-0 " >
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Rua" name="ruaRem" id="ruaRem" readOnly disabled>
+            </div>
+            <div class="col-sm-3 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                    placeholder="Nº" name="numeroRem" id="numeroRem" readOnly disabled>
+            </div>
+            <div class="col-sm-4 mb-1 form-group pl-0 pr-1 ">
+                <input type="text" class="form-control form-control-sm pl-0 " 
+                placeholder="Complemento" name="complementoRem" id="complementoRem" readOnly disabled>
+            </div>
+            <div class="col-sm-5 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Bairro" name="bairroRem" id="bairroRem" readOnly disabled>
+            </div>
+            <div class="col-sm-9 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Cidade" name="cidadeRem" id="cidadeRem" readOnly>
+            </div>
+            <div class="col-sm-3 mb-3 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="UF" name="ufRem" id="ufRem" readOnly>
+            </div>
+        </div>
+    </div>
+    {% comment %} Direita {% endcomment %}
+    <div class="form-group col-4  mb-0 mt-0 ">
+        <h4 class = "card-title text-primary">Destinatario</h4>
+        <div class="form-group row mb-1">
+            <div class="col-sm-8 mb-1 pr-1 input-group">
+                <input type="text" class="form-control form-control-sm" id="cnpjDest" 
+                name="cnpjDest" placeholder="Cnpj/Cpf" aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-danger form-control-sm"  id="btnLimpaCnpjDest" type="button">
+                        <i class="ti-eraser"></i>   
+                    </button> 
+                    <button class="btn btn-primary form-control-sm"  id="btnCnpjDest" onclick="openModal('mdlCadParceiros')" type="button">
+                        <i class="ti-search"></i>   
+                    </button>   
+                </div>  
+            </div>
+            <div class="col-sm-4 mb-1 pl-0  form-group">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Inscr. Est." name="inscDest" id="inscDest" readOnly disabled>
+            </div>   
+            <div class="col-sm-6 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Nome/Razão" name="razaoDest" id="razaoDest" readOnly disabled>
+            </div>
+            <div class="col-sm-6 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Nome Fantasia" name="fantasiaDest" id="fantasiaDest" readOnly disabled>
+            </div>
+            <div class="col-sm-4 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Cep" name="cepDest" id="cepDest" readOnly disabled>
+            </div>
+            <div class="col-sm-8 mb-1 form-group pl-0 " >
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Rua" name="ruaDest" id="ruaDest" readOnly disabled>
+            </div>
+            <div class="col-sm-3 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                    placeholder="Nº" name="numeroDest" id="numeroDest" readOnly disabled>
+            </div>
+            <div class="col-sm-4 mb-1 form-group pl-0 pr-1 ">
+                <input type="text" class="form-control form-control-sm pl-0 " 
+                placeholder="Complemento" name="complementoDest" id="complementoDest" readOnly disabled>
+            </div>
+            <div class="col-sm-5 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Bairro" name="bairroDest" id="bairroDest" readOnly disabled>
+            </div>
+            <div class="col-sm-9 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Cidade" name="cidadeDest"id="cidadeDest" readOnly>
+            </div>
+            <div class="col-sm-3 mb-3 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="UF" name="ufDest" id="ufDest" readOnly>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-4 ">
+        <h4 class = "card-title text-primary">Consignatário</h4>
+        <div class="form-group row mb-1">
+            <div class="col-sm-8 mb-1 pr-1 input-group">
+                <input type="text" class="form-control form-control-sm" id="cnpjConsig"
+                 placeholder="Cnpj/Cpf" name="cnpjConsig" aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-danger form-control-sm"  id="btnLimpaCnpjConsig" type="button">
+                        <i class="ti-eraser"></i>   
+                    </button>                     
+                    <button class="btn btn-primary form-control-sm"  id="btnCnpjConsig" onclick="openModal('mdlCadParceiros')" type="button">
+                        <i class="ti-search"></i>   
+                    </button>   
+                </div>  
+            </div>
+            <div class="col-sm-4 mb-1 pl-0  form-group">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Inscr. Est." name="inscConsig" id="inscConsig" readOnly disabled>
+            </div>   
+            <div class="col-sm-6 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Nome/Razão" name="razaoConsig" id="razaoConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-6 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Nome Fantasia" name="fantasiaConsig" id="fantasiaConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-4 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Cep" name="cepConsig" id="cepConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-8 mb-1 form-group pl-0 " >
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Rua" name="ruaConsig" id="ruaConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-3 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                    placeholder="Nº" name="numeroConsig" id="numeroConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-4 mb-1 form-group pl-0 pr-1 ">
+                <input type="text" class="form-control form-control-sm pl-0 " 
+                placeholder="Complemento" name="complementoConsig" id="complementoConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-5 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Bairro" name="bairroConsig" id="bairroConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-9 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Cidade" name="cidadeConsig" id="cidadeConsig" readOnly disabled>
+            </div>
+            <div class="col-sm-3 mb-3 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="UF" name="ufConsig" id="ufConsig" readOnly disabled>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

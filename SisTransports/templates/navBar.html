@@ -1,0 +1,296 @@
+{% load static %}
+<div id="navbar">
+    <div class="navbar navbar-expand-md fixed-top navbar-light bg-white p-0 altura-navbar" id="fundoNavbar">
+
+    </div>
+    <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white p-0 altura-navbar">
+        <a class="navbar-brand mr-4" href="#">
+            <div>
+                <span><img src="{% static 'images/favicon.png' %}" class="float-start mt-0" alt="logo"><strong class="text-primary pl-2 mt-3"> SisTransports</strong></span>
+            </div>
+        </a>
+        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
+                    <div class="dropdown-menu" id="dropdown-menu1" aria-labelledby="navbarDropdown1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fas fa-handshake icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" onclick="openModal('mdlCadParceiros')">
+                                                    <h6 class="mb-0">Parceiros</h6>
+                                                    <small class="text-muted">Cadastro de Parceiros</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fas fa-users icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item"  onclick="openModal('cadastroProprietario')">
+                                                    <h6 class="mb-0">Proprietários</h6>
+                                                    <small class="text-muted">Cadastro Proprietários</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fa fa-truck icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" onclick="openModal('cadastroVeiculo')">
+                                                    <h6 class="mb-0">Veículos</h6>
+                                                    <small class="text-muted">Cadastro Veículos</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fa fa-road icone-menu" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" onclick="openModal('mdlRotas')">
+                                                    <h6 class="mb-0">Rotas</h6>
+                                                    <small class="text-muted">Cadastro de Rotas</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>  -->
+                                    <!-- <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fa fa-calculator icone-menu" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" onclick="openModal('mdlTabFrete')">
+                                                    <h6 class="mb-0">Tabelas de Frete</h6>
+                                                    <small class="text-muted">Cadastro de Tabelas de Frete</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>     -->
+                                    <div class="row d-flex">
+                                        <div class="input-group-append" >
+                                            <div class="fa-icon text-center ">
+                                                <span class="fa fa-id-card icone-menu" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" onclick="openModal('cadastroMotorista')">
+                                                    <h6 class="mb-0">Motoristas</h6>
+                                                    <small class="text-muted">Cadastro de Motoristas</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>                                                                                                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Operacional</a>
+                    <div class="dropdown-menu" id="dropdown-menu1" aria-labelledby="navbarDropdown1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fas fa-file-alt icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" href="/operacional/importar_xml/">
+                                                    <h6 class="mb-0">Notas Fiscais</h6>
+                                                    <small class="text-muted">Importar Notas Fiscais</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fas fa-shipping-fast icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" href="/operacional/manifesto/">
+                                                    <h6 class="mb-0">Manifestos</h6>
+                                                    <small class="text-muted">Manifestos</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comercial</a>
+                    <div class="dropdown-menu" id="dropdown-menu1" aria-labelledby="navbarDropdown1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fas fa-briefcase icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" href="/comercial/">
+                                                    <h6 class="mb-0">Dtc</h6>
+                                                    <small class="text-muted">Tabelas de Frete</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Processos</a>
+                    <div class="dropdown-menu" id="dropdown-menu2" aria-labelledby="navbarDropdown2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="row d-flex tab">
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fas fa-upload icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item">
+                                                    <h6 class="mb-0">Cte's</h6>
+                                                    <small class="text-muted">Transmissão</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex tab">
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fas fa-map icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item" href="/operacional/roteirizacao_coletas/">
+                                                    <h6 class="mb-0" >Planejamento e Acompanhamento</h6>
+                                                    <small class="text-muted">Coletas e Entregas</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Relatórios</a>
+                    <div class="dropdown-menu" id="dropdown-menu2" aria-labelledby="navbarDropdown2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="row d-flex tab">
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fa fa-files-o icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">    
+                                                <a class="dropdown-item" href="/operacional/impressaoColetas/">
+                                                    <h6 class="mb-0">Coletas</h6>
+                                                    <small class="text-muted">Coletas</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex tab">
+                                    <div class="row d-flex">
+                                        <div class="input-group-append">
+                                            <div class="fa-icon text-center">
+                                                <span class="fa fa-truck icone-menu"></span>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <a class="dropdown-item">
+                                                    <h6 class="mb-0">Cte</h6>
+                                                    <small class="text-muted">Relatórios Cte's</small>
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Impressão</a>
+                    <div class="dropdown-menu" id="dropdown-menu3" aria-labelledby="navbarDropdown3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row d-flex tab">
+                                        <div class="fa-icon text-center">
+                                            <span class="fa fa-feed"></span>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="#">
+                                                <h6 class="mb-0">Feedback</h6>
+                                                <small class="text-muted">Opinions, complaints</small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row d-flex tab">
+                                        <div class="fa-icon text-center">
+                                            <span class="fa fa-question"></span>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="#">
+                                                <h6 class="mb-0">FAQs</h6>
+                                                <small class="text-muted">Qs and answers</small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#btnAbrirModalVeiculo').on('click', function () {
+            console.log('Veiculo')
+            $('#cadastroVeiculo').modal('show');
+        });
+
+        $('#btnAbrirModalMotorista').on('click', function () {
+            console.log('Veiculo')
+            $('#cadastroMotorista').modal('show');
+        });
+    });
+</script>

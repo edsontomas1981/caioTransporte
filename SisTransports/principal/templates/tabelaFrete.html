@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{%load static %}
+{% load bootstrap %}
+{% block 'conteudo' %}
+  <div class="row pl-5 pt-5" id="divPaginaTabelas">
+    <div class="col-12 "> 
+      <div class="form-floating col-sm-12 mb-1 pr-1 pl-0 input-group">
+          <input type="text" class="form-control" id="buscarTabelaFrete"
+           placeholder="Buscar" name="buscarTabelaFrete">
+           <label for="buscarTabelaFrete" class="text-primary">Buscar</label>
+          <div class="input-group-append">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="openModal('mdlTabFrete')">
+                <i class="ti-save"></i>
+                Criar Tabela        
+            </button>               
+          </div>  
+      </div>                
+    </div>
+    <div class="col-12" id="paginacaoRelatTabelas">
+      <table class="table table-dark table-striped table-sm" id="relatorioTabela">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Id</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Mínimo</th>
+            <th scope="col">Frete</th>
+            <th scope="col">Advalor</th>
+            <th scope="col">Gris</th>
+            <th scope="col">Despacho</th>
+            <th scope="col">Pedágio</th>
+            <th scope="col">Outros</th>
+            <th scope="col"></th>
+            <th scope="col"></th> 
+          </tr>
+        </thead>
+        <tbody id="tbodyRelatorioTabelas">
+
+        </tbody>
+      </table>
+    </div>
+  </div>        
+{% endblock %}
+
+{%block 'js'%}
+  <!-- <script src="{% static 'js/meusJS/tabela.js' %}"></script>  -->
+
+{% endblock 'js' %}

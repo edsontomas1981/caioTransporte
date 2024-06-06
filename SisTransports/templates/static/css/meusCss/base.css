@@ -1,0 +1,189 @@
+.altura-navbar{
+    height: 40px !important;
+}
+
+.bloco-conteudo{
+    padding: 0px 10px 0px 10px !important;
+    border-top: 1px !important;
+}
+
+.thead-padrao{
+    background-color: #4B49AC !important; /* Cor de fundo para o cabeçalho */
+    padding: 8px !important;
+    text-align: left !important;
+    color: white !important;
+    border-bottom: 1px solid #ddd !important;
+  }
+
+.celula-titulo{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+.tab-preDtc{
+    padding: 15px 40px 15px 40px !important;
+}
+
+.pill-preDtc{
+    padding: 1px 40px 0px 40px !important;
+    border-bottom: none;
+}
+
+.footer{
+    padding:10px 1.25rem !important;    
+}
+
+.icone-menu{
+    width: 50px !important;
+}
+
+.margin-topo{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important; 
+    padding-left: 0px !important;
+}
+.margin-topo-modal{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important; 
+    padding-left: 10px !important;
+}
+
+.conjunto-botoes{
+    margin-bottom: 3px !important;
+}
+
+.modal-altura{
+    position: fixed !important; 
+    top: 10px !important; 
+    left: 0px !important; 
+    right: 0px !important; 
+    margin: auto !important;
+}
+
+.campo-vazio {
+    border-color: red;
+    background-color: #ffe6e6; /* ou outra cor de fundo desejada */
+}
+  
+.loader {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(235, 235, 235, 0.5); */
+}
+
+.spinner-border{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-impressao{
+    color: white !important;
+    font-weight: bold; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 50px; 
+    width: 350px; 
+    margin-bottom: 10px;
+}
+
+.nav-planejamento-acompanhamento{
+    margin: 0px !important;
+    padding: 0px 10px 0px 0px !important;
+    color: black;
+}
+
+.conteudo-pill-planejamento-acompanhamento{
+    padding: 0px 10px 0px 0px !important;
+}
+
+.mapa-planejamento {
+    height: 90vh !important; /* 95% da altura da viewport (tela) */
+    width: 95vw !important; /* 95% da largura da viewport (tela) */
+    border-radius: 10px;
+    padding: 0; /* Remover todo o padding */
+    margin: 0; /* Remover qualquer margem para ocupar toda a tela */
+}
+
+#filial {
+    position: absolute;
+    width: 95vw !important; /* 95% da largura da viewport (tela) */
+    top: 10px; /* Posição inicial do select */
+    left: 150px; /* Posição inicial do select */
+    z-index: 1000; /* Para sobrepor o mapa */
+    transition: top 0.3s ease, left 0.3s ease; /* Adiciona transição suave */
+}
+.btn-limpar-mapa {
+    position: fixed;
+    bottom: 20px !important;
+    right: 30px !important;
+    font-weight: bold;
+    font-size: larger;
+    z-index: 1000; /* Para sobrepor outros elementos */
+}
+
+.btn-offcanvas-top {
+    position: fixed;
+    bottom: 70px !important;
+    right: 30px !important;
+    font-weight: bold;
+    font-size: larger;
+    z-index: 1000; /* Para sobrepor outros elementos */
+}
+
+.btn-offcanvas-left {
+    position: fixed;
+    bottom: 120px !important;
+    right: 30px !important;
+    font-weight: bold;
+    font-size: larger;
+    z-index: 1000; /* Para sobrepor outros elementos */
+}
+
+.btn-offcanvas-bottom {
+    position: fixed;
+    bottom: 170px !important;
+    right: 30px !important;
+    font-weight: bold;
+    font-size: larger;
+    z-index: 1000; /* Para sobrepor outros elementos */
+}
+
+a.active {
+    background-color: #4b49ac !important;
+    color: whitesmoke !important;
+    font-weight: bold !important;
+}
+
+/* Estilos para a tabela com altura máxima e rolagem vertical */
+.tabela-planejamento-veiculos {
+    max-height: 30px !important; /* Defina aqui a altura máxima desejada */
+    overflow-y: auto !important; /* Habilita a rolagem vertical quando o conteúdo excede a altura máxima */
+    border: 1px solid #ddd !important; /* Adiciona uma borda para separar visualmente o contêiner */
+    border-radius: 5px !important; /* Borda arredondada para o contêiner */
+    padding: 10px !important; /* Espaçamento interno */
+}
+
+.table-container {
+    max-height: 300px; /* Defina aqui a altura máxima desejada */
+    overflow-y: auto; /* Habilita a rolagem vertical quando o conteúdo excede a altura máxima */
+    border: 1px solid #ddd; /* Adiciona uma borda para separar visualmente o contêiner */
+    border-radius: 5px; /* Borda arredondada para o contêiner */
+    padding: 10px; /* Espaçamento interno */
+}

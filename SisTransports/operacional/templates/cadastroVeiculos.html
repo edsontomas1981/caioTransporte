@@ -1,0 +1,182 @@
+<form id="frmCadastroVeiculos">
+  <div class="modal" id="cadastroVeiculo" tabindex="-1" data-bs-backdrop="static"
+      data-bs-keyboard="false">
+      <div class="modal-dialog modal-lg modal-altura">
+        <div class="modal-content">
+          <div class="modal-header cabecalho-modal-parceiro">
+            <h5 class="modal-title">Cadastro de Veículos</h5>
+            <div>
+              <div class="input-group mb-2" align="right">
+                <button type="button" class="btn btn-secondary btn-rounded btn-icon" id="btnLimpaVeiculo" align="right">            
+                  <i class="ti-write"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-rounded btn-icon" id="salvaVeiculo" align="right">            
+                  <i class="ti-save"></i>
+                </button>
+                <button type="button" class="btn btn-danger btn-rounded btn-icon" id="btnCloseVeiculo" onclick="closeModal()" align="right">
+                  <i class="ti-close"></i>
+                </button>
+              </div>
+            </div>  
+          </div>
+          <div class="modal-body">
+
+              <div class="row">
+                <div class="form-group row  margin-topo-modal pl-5">
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-0 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                        <input type="text" class="form-control small  form-control-sm obrigatorio" id="placaProprietario" oninput="transformToUpperCase('placaProprietario')" name="placaProprietario" placeholder="Placa" maxlength="7">
+                      <label class="text-secondary" for="placaProprietario">Placa:</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="numeroFrota" name="numeroFrota" placeholder="Nº Frota" >
+                      <label class="text-secondary" for="numeroFrota">Frota:</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="numeroRastreador" name="numeroRastreador" placeholder="Nº Rastreador" >
+                      <label class="text-secondary" for="numeroRastreador">Numero Rastreador:</label>
+                    </div>
+                  </div> 
+                </div> 
+                <div class="form-group row  margin-topo-modal pl-5">
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="renavam" name="renavam" placeholder="Renavam" >
+                      <label class="text-secondary" for="renavam">Renavam:</label>
+                    </div>
+                  </div>  
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-2 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="chassisVeiculo" name="chassisVeiculo" placeholder="Chassis" >
+                      <label class="text-secondary" for="chassisVeiculo">Chassis:</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <select class="form-select" id="tipoCombustivel" name="tipoCombustivel">
+                      </select>
+                      <label for="tipoCombustivel">Tipo Combustível</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <select class="form-select" id="marcaVeiculo" name="marcaVeiculo">
+                      </select>
+                      <label for="marcaVeiculo">Marca</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="modeloVeiculo" name="modeloVeiculo" placeholder="Modelo" >
+                      <label class="text-secondary" for="modeloVeiculo">Modelo:</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="corVeiculo" name="corVeiculo" placeholder="Cor" >
+                      <label class="text-secondary" for="corVeiculo">Cor:</label>
+                    </div>
+                  </div> 
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group row  margin-topo-modal pl-5">
+
+                  <div class="col-sm-3 pb-0 pt-1 pl-0 pr-1 form-group margin-topo">
+                    <div class="input-group form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="cnpjProprietario" name="cnpjProprietario" placeholder="Cpf/Cnpj"  >
+                      <label class="text-secondary" for="cnpjProprietario">CPF/CNPJ:</label>
+                      <div class="input-group-append">
+                        <a class="btn btn-primary" id="btnBuscaProprietario" onclick="openModal('cadastroProprietario')">
+                          <i class="fas fa-search fa-lg" style="width: 100%;"></i>   
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-3 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="nomeProprietario" name="nomeProprietario" placeholder="Nome/Razão Social" >
+                      <label class="text-secondary" for="nomeProprietario">Nome/Razão Social:</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-floating pt-1">
+                      <select class="form-select" id="tipoVeiculo" name="tipoVeiculo">
+                      </select>
+                      <label for="tipoVeiculo">Tipo Veículo</label>
+                    </div>
+                  </div>  
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <select class="form-select" id="tipoCarroceria" name="tipoCarroceria">
+                      </select>
+                      <label for="tipoCarroceria">Tipo Carroceria</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="anoFabMod" name="anoFabMod" placeholder="1999/1999"   pattern="[0-9]{2}/[0-9]{2}" maxlength="5" title="Digite uma data no formato 99/99">
+                      <label class="text-secondary" for="anoFabMod">Ano:</label>
+                    </div>
+                  </div>  
+
+                  <div class="col-sm-3 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="cidadeVeiculo" name="cidadeVeiculo" placeholder="Cidade" >
+                      <label class="text-secondary" for="cidadeVeiculo">Cidade:</label>
+                    </div>
+                  </div>    
+
+                  <div class="col-sm-3 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="ufVeiculo" name="ufVeiculo" placeholder="UF" >
+                      <label class="text-secondary" for="ufVeiculo">Uf:</label>
+                    </div>
+                  </div>  
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="tara" name="tara" placeholder="Placa" >
+                      <label class="text-secondary" for="tara">Tara:</label>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="capacidadeKg" name="capacidadeKg" placeholder="Capacidade KG" >
+                      <label class="text-secondary" for="capacidadeKg">Capacidade Kg:</label>
+                    </div>
+                  </div>  
+
+                  <div class="col-sm-2 pb-0 pt-1 pl-1 pr-1 form-group margin-topo">
+                    <div class="form-group form-floating pt-1">
+                      <input type="text" class="form-control small  form-control-sm" id="capacidadeCubica" name="capacidadeCubica" placeholder="Capacidade M³" >
+                      <label class="text-secondary" for="capacidadeCubica">Capacidade M³:</label>
+                    </div>
+                  </div>
+                                                                                                                                                        
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</form>

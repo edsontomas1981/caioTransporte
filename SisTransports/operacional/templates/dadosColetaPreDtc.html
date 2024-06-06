@@ -1,0 +1,144 @@
+<div class="row">
+    <div class="input-group col-12 mb-3 mt-0" align="right">
+        <button class="btn btn-secondary btn-rounded form-control-sm " 
+        data-toggle="tooltip" data-placement="top" title="Novo" id="btnNovoColeta">
+        <i class="ti-write"></i>
+        </button>
+        <button type="button" class="btn btn-success btn-rounded  form-control-sm"
+        data-toggle="tooltip" data-placement="top" title="Salvar" id="btnSalvaColeta">
+        <i class="ti-save"></i>
+        </button>
+        <button type="button" class="btn btn-danger btn-rounded form-control-sm" 
+            data-toggle="tooltip" data-placement="top" title="Excluir" 
+            id="btnExcluiColeta">
+            <i class="ti-trash"></i>
+        </button>    
+    </div>      
+    <div class="form-group col-6 mb-0 mt-0">
+         <div class="form-group row mb-1">
+            <div class="col-sm-6 mb-0 pr-0 pl-1 form-group">
+                <input type="hidden" class="form-control form-control-sm " 
+                placeholder="id Coleta" name="idColeta" id="idColeta">
+                <input type="text" class="form-control form-control-sm " 
+                placeholder="Nº Nota Fiscal" name="nf" id="nf">
+            </div>            
+            <div class="col-sm-6 mb-0 pr-1 pl-1 form-group ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Volumes" name="volumes" id="volumes">
+            </div>
+            <div class="input-group col-sm-4  mt-1 mb-1 pr-0 pl-1">
+                <input type="text" class="form-control  form-control-sm " 
+                placeholder="Peso" id="peso" name="peso">
+            </div>                       
+            <div class="input-group col-sm-4 mb-1 mt-1 pr-0 pl-1">
+                <div class="input-group">
+                    <input type="text" class="form-control small  form-control-sm" id='resultM3' 
+                    name='resultM3' placeholder="M³" aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <a class="btn btn-primary  form-control-sm" id="btnM3Coleta" data-bs-toggle="modal" 
+                        data-bs-target="#modalCalcM3">
+                            M³
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mb-1 mt-1 form-group pl-1 pr-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Valor R$" name="valor" id="valor" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+            </div>
+            <div class="col-sm-6 mb-1 form-group pl-1 pr-0 " >
+                <select class="form-select " placeholder="Espécie" id="especie" name="especie">
+                    <option value="0">Selecione um tipo de carga</option>
+                    <option value="1">Amarrados</option>
+                    <option value="2">Baldes</option>
+                    <option value="3">Barricas</option>
+                    <option value="4">Caixas</option>
+                    <option value="5">Diversos</option>
+                    <option value="6">Engradados</option>
+                    <option value="7">Kgs</option>
+                    <option value="8">Metros</option>
+                    <option value="9">Pallets</option>
+                    <option value="10">Unidades</option>
+                </select>  
+            </div>
+            <div class="col-sm-6 mb-1 form-group pl-1 pr-1 " >
+                <select class="form-select " placeholder="Espécie" id="veiculo" name="veiculo">
+                    <option value="0">Selecione o tipo de veículo</option>
+                    <option value="1">Van</option>
+                    <option value="2">VUC</option>
+                    <option value="3">3/4</option> 
+                    <option value="2">Toco</option>       
+                    <option value="2">Truck</option>
+                    <option value="3">Carreta</option>
+                </select>  
+            </div>
+            <div class="col-sm-6 mb-1 form-group pr-1 pl-1">
+                <input type="text" class="form-control  form-control-sm  " 
+                    placeholder="Tipo mercadoria" name="mercadoria" id="mercadoria">
+            </div>  
+            <div class="col-sm-6 mb-1 form-group pl-1 pr-1 ">
+                <input type="text" class="form-control pl-0 form-control-sm" 
+                placeholder="Horário" name="horario" id="horario">
+            </div>
+            <div class="col-sm-12 form-group mb-0 mt-0 pl-1 pr-1">
+                <textarea class="form-control " id="obs" 
+                name="obs" name="obs" rows="4" placeholder="Observações">
+                </textarea>
+            </div> 
+        </div>
+    </div>
+    <div class="form-group col-6 mb-0 mt-0">
+        <div class="form-group row mb-1">
+            <div class="col-sm-5 mb-1 form-group pr-1">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-sm" id="cepColeta"
+                    name="cepColeta"  placeholder="Cep" aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary form-control-sm"  id="btnCepColeta" type="button">
+                            <i class="ti-search"></i>   
+                        </button>
+                    </div>  
+                </div>
+            </div>
+            <div class="col-sm-7 mb-1 form-group pl-0 " >
+                <input type="text" class="form-control form-control-sm " 
+                placeholder="Rua" name="rua" id="ruaColeta">
+            </div>
+            <div class="col-sm-3 mb-1 form-group pr-1">
+                <input type="text" class="form-control  form-control-sm" 
+                    placeholder="Nº" name="numero" id="numeroColeta">
+            </div>
+            <div class="col-sm-3 mb-1 form-group pl-0 pr-1 ">
+                <input type="text" class="form-control  pl-0  form-control-sm" 
+                placeholder="Complemento" name="complemento" id="complementoColeta">
+            </div>
+            <div class="col-sm-6 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm " 
+                placeholder="Bairro" name="bairro" id="bairroColeta">
+            </div>
+            <div class="col-sm-9 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm " 
+                placeholder="Cidade" name="cidade" id="cidadeColeta">
+            </div>
+            <div class="col-sm-3 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="UF" name="uf" id="ufColeta">
+            </div>
+            <div class="col-sm-7 mb-1 form-group pr-1">
+                <input type="text" class="form-control form-control-sm " 
+                    placeholder="Nome" name="nomeColeta" id="nomeColeta">
+            </div>
+            <div class="col-sm-5 mb-1 form-group pl-0 ">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Contato" name="contatoColeta" id="contatoColeta"
+                onkeypress="mask(this, mphone);">
+            </div>
+            <div class="col-sm-3 mb-1 form-group pl-0 ">
+            </div>
+
+            <div class="col-sm-3 mb-1 form-group pl-0 ">
+            </div>             
+
+    </div>
+    </div>  
+</div>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{%load static %}
+{% load bootstrap %}
+{% block 'conteudo' %}
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+        data-bs-target="#mdlCadParceiros">
+    Launch demo modal
+</button>
+{% include 'cadastroParceiros.html'%}   
+{% endblock %}
+
+{%block 'js'%}
+<script src="{% static 'js/meusJS/botoes.js' %}"></script>
+<script src="{% static 'js/meusJS/contato.js' %}"></script>
+<script src="{% static 'js/meusJS/parceiros.js' %}"></script>
+<script src="{% static 'js/meusJS/dadosParceiro.js' %}"></script>
+{% endblock 'js' %}
