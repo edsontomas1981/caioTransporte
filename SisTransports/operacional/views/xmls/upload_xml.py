@@ -4,18 +4,133 @@ from django.core.files.storage import FileSystemStorage
 from django.views.decorators.http import require_http_methods
 from django.core.exceptions import ValidationError
 import os
+import xml.etree.ElementTree as ET
 
 @csrf_exempt
-@require_http_methods(["POST","GET"])
+@require_http_methods(["POST", "GET"])
 def upload_xml(request):
     if request.FILES.getlist('xml_files'):
         xml_files = request.FILES.getlist('xml_files')
         fs = FileSystemStorage()
+        errors = []
+        results = []
+
         for xml_file in xml_files:
             filename = fs.save(xml_file.name, xml_file)
-            # Caminho completo do arquivo salvo
-            uploaded_file_url = fs.url(filename)
-            print(f'Arquivo XML salvo em: {uploaded_file_url}')
-        
-        return JsonResponse({'message': 'Arquivos XML recebidos com sucesso.'})
+            uploaded_file_path = fs.path(filename)
+
+            try:
+                tree = ET.parse(uploaded_file_path)
+                root = tree.getroot()
+
+                # Ajuste o namespace conforme necessário
+                ns = {'ns': 'http://www.portalfiscal.inf.br/nfe'}
+                infNFe = root.find('.//ns:infNFe', ns)
+                
+                # Se infNFe não for encontrado, adicionar um erro e continuar
+                if infNFe is None:
+                    errors.append(f'Elemento infNFe não encontrado no arquivo {xml_file.name}')
+                    continue
+                
+                ide = infNFe.find('ns:ide', ns)
+                emit = infNFe.find('ns:emit', ns)
+                dest = infNFe.find('ns:dest', ns)
+                
+                data = {
+                    'filename': xml_file.name,
+                    'ide': {
+                        'cUF': get_element_text(ide, 'ns:cUF', ns),
+                        'cNF': get_element_text(ide, 'ns:cNF', ns),
+                        'natOp': get_element_text(ide, 'ns:natOp', ns),
+                        'mod': get_element_text(ide, 'ns:mod', ns),
+                        'serie': get_element_text(ide, 'ns:serie', ns),
+                        'nNF': get_element_text(ide, 'ns:nNF', ns),
+                        'dhEmi': get_element_text(ide, 'ns:dhEmi', ns),
+                        'dhSaiEnt': get_element_text(ide, 'ns:dhSaiEnt', ns),
+                        'tpNF': get_element_text(ide, 'ns:tpNF', ns),
+                        'idDest': get_element_text(ide, 'ns:idDest', ns),
+                        'cMunFG': get_element_text(ide, 'ns:cMunFG', ns),
+                        'tpImp': get_element_text(ide, 'ns:tpImp', ns),
+                        'tpEmis': get_element_text(ide, 'ns:tpEmis', ns),
+                        'cDV': get_element_text(ide, 'ns:cDV', ns),
+                        'tpAmb': get_element_text(ide, 'ns:tpAmb', ns),
+                        'finNFe': get_element_text(ide, 'ns:finNFe', ns),
+                        'indFinal': get_element_text(ide, 'ns:indFinal', ns),
+                        'indPres': get_element_text(ide, 'ns:indPres', ns),
+                        'procEmi': get_element_text(ide, 'ns:procEmi', ns),
+                        'verProc': get_element_text(ide, 'ns:verProc', ns)
+                    },
+                    'emit': {
+                        'CNPJ': get_element_text(emit, 'ns:CNPJ', ns),
+                        'xNome': get_element_text(emit, 'ns:xNome', ns),
+                        'xFant': get_element_text(emit, 'ns:xFant', ns),
+                        'enderEmit': {
+                            'xLgr': get_element_text(emit, 'ns:enderEmit/ns:xLgr', ns),
+                            'nro': get_element_text(emit, 'ns:enderEmit/ns:nro', ns),
+                            'xBairro': get_element_text(emit, 'ns:enderEmit/ns:xBairro', ns),
+                            'cMun': get_element_text(emit, 'ns:enderEmit/ns:cMun', ns),
+                            'xMun': get_element_text(emit, 'ns:enderEmit/ns:xMun', ns),
+                            'UF': get_element_text(emit, 'ns:enderEmit/ns:UF', ns),
+                            'CEP': get_element_text(emit, 'ns:enderEmit/ns:CEP', ns),
+                            'cPais': get_element_text(emit, 'ns:enderEmit/ns:cPais', ns),
+                            'xPais': get_element_text(emit, 'ns:enderEmit/ns:xPais', ns),
+                            'fone': get_element_text(emit, 'ns:enderEmit/ns:fone', ns)
+                        },
+                        'IE': get_element_text(emit, 'ns:IE', ns),
+                        'CRT': get_element_text(emit, 'ns:CRT', ns)
+                    },
+                    'dest': {
+                        'CNPJ': get_element_text(dest, 'ns:CNPJ', ns),
+                        'xNome': get_element_text(dest, 'ns:xNome', ns),
+                        'enderDest': {
+                            'xLgr': get_element_text(dest, 'ns:enderDest/ns:xLgr', ns),
+                            'nro': get_element_text(dest, 'ns:enderDest/ns:nro', ns),
+                            'xBairro': get_element_text(dest, 'ns:enderDest/ns:xBairro', ns),
+                            'cMun': get_element_text(dest, 'ns:enderDest/ns:cMun', ns),
+                            'xMun': get_element_text(dest, 'ns:enderDest/ns:xMun', ns),
+                            'UF': get_element_text(dest, 'ns:enderDest/ns:UF', ns),
+                            'CEP': get_element_text(dest, 'ns:enderDest/ns:CEP', ns),
+                            'cPais': get_element_text(dest, 'ns:enderDest/ns:cPais', ns),
+                            'xPais': get_element_text(dest, 'ns:enderDest/ns:xPais', ns),
+                            'fone': get_element_text(dest, 'ns:enderDest/ns:fone', ns)
+                        },
+                        'indIEDest': get_element_text(dest, 'ns:indIEDest', ns),
+                        'IE': get_element_text(dest, 'ns:IE', ns)
+                    }
+                }
+
+                results.append(data)
+
+            except ET.ParseError:
+                errors.append(f'Erro ao parsear o arquivo {xml_file.name}')
+            except AttributeError:
+                errors.append(f'Elementos de CNPJ não encontrados no arquivo {xml_file.name}')
+
+        if errors:
+            return JsonResponse({'errors': errors}, status=400)
+
+        return JsonResponse({'message': 'Arquivos XML recebidos com sucesso.', 'data': results})
+
     return JsonResponse({'error': 'Nenhum arquivo XML encontrado.'}, status=400)
+
+def get_element_text(parent_element, xpath, namespaces):
+    element = parent_element.find(xpath, namespaces)
+    if element is not None:
+        return element.text
+    else:
+        return None
+
+def validate_cnpj(cnpj):
+    cnpj = ''.join(filter(str.isdigit, cnpj))
+    if len(cnpj) != 14:
+        return False
+
+    def calculate_digit(cnpj, pos):
+        total = sum([int(cnpj[i]) * (pos - i) for i in range(pos - 8, pos)])
+        return 11 - (total % 11) if (11 - (total % 11)) < 10 else 0
+
+    if cnpj in (c * 14 for c in "1234567890"):
+        return False
+
+    calculated_cnpj = cnpj[:12] + str(calculate_digit(cnpj, 12)) + str(calculate_digit(cnpj, 13))
+    return calculated_cnpj == cnpj

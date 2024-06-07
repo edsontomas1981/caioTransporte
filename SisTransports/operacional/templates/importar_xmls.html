@@ -5,8 +5,8 @@
 {% block 'conteudo_container'%}
     <div class="row mt-5 container-fluid">
         <div class="input-group mb-3">
-            <label class="input-group-text" for="xmlFilesInput" onclick="uploadXMLFiles()"">Enviar</label>
-            <input type="file" class="form-control" id="xmlFilesInput" multiple>
+            <label class="input-group-text" for="xmlFilesInput">Enviar</label>
+            <input type="file" class="form-control" id="xmlFilesInput" onchange="uploadXMLFiles()" multiple>
         </div>
     </div>
 {% endblock %} 
