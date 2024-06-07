@@ -14,19 +14,22 @@ class Enderecos:
                 uf=dados['estado']
             )
             endereco.save()
-            return 200
+
+            return endereco
         except Exception as e:
             print(f"Erro ao criar ou atualizar endereço: {e}")
-            return 400
+            return None
             
     @classmethod
     def createEndereco(cls, dados):
         try:
-            cls.createOrUpdate(dados)
-            return 200
+            endereco = cls.createOrUpdate(dados)  # Armazena o objeto criado
+            return endereco  # Retorna o objeto e código 200 (OK)
         except Exception as e:
-            print(f"Erro ao criar endereço: {e}")
-            return 400
+            # Log do erro para depuração (opcional, mas recomendado)
+            import logging
+            logging.error(f"Erro ao criar endereço: {e}") 
+            return None # Retorna None e código 400 (Bad Request)
             
     @classmethod
     def readEndereco(cls, idEndereco):

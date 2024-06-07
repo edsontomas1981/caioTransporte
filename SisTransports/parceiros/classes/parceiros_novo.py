@@ -7,28 +7,22 @@ class Parceiros():
     @classmethod
     def createParceiro(cls, dados):
         try:
-            if MdlParceiros.objects.filter(cnpj_cpf=dados['cnpj']).exists():
-                # caso o cnpj já exista, ele altera o cnpj
-                cls.parceiro = MdlParceiros.objects.filter(cnpj_cpf=dados['cnpj']).get()
-                cls.createOrUpdate(dados)
-                cls.parceiro.save()
-                return 201
-            else:
-                cls.createOrUpdate(dados)
-                cls.parceiro.save()
-                return 200
+            cls.parceiro = MdlParceiros()
+            cls.createOrUpdate(dados)
+            cls.parceiro.save()
+            return cls
         except Exception as e:
             print(f"Erro ao criar parceiro: {e}")
-            return 400
+            return None
 
     @classmethod
     def createOrUpdate(cls, dados):
-        cls.parceiro.cnpj_cpf = dados['cnpj']
-        cls.parceiro.raz_soc = dados['razao']
-        cls.parceiro.nome_fantasia = dados['fantasia']
-        cls.parceiro.insc_est = dados['inscr']
-        cls.parceiro.observacao = dados['obs']
-        cls.parceiro.endereco_fk = dados['endereco_fk']
+        cls.parceiro.cnpj_cpf = dados.get('cnpj')
+        cls.parceiro.raz_soc = dados.get('razao')
+        cls.parceiro.nome_fantasia = dados.get('fantasia')
+        cls.parceiro.insc_est = dados.get('inscr')
+        cls.parceiro.observacao = dados.get('obs'," ")
+        cls.parceiro.endereco_fk = dados.get('endereco_fk')
 
     @classmethod
     def readParceiroClassMethod(cls, cnpj):
@@ -55,9 +49,9 @@ class Parceiros():
                 tabelas = TabelaFrete()
                 cls.parceiro.tabelasFrete = tabelas.get_tabelas_por_parceiro(cls.parceiro)
                 cls.parceiro.listaContatos = contatos.readContatos(cls.parceiro.id)
-                return 200
+                return cls.parceiro,200
             else:
-                return 404
+                return None
         except Exception as e:
             print(f"Erro ao ler parceiro: {e}")
             return 500
