@@ -92,7 +92,7 @@ urlpatterns = [
     path('ws/', include(viewsOperacional.routing.websocket_urlpatterns)),
 
     path('upload_xml/',viewsOperacional.upload_xml,name='upload_xml'),
-    path('importar_xml/',viewsOperacional.importar_xml,name='importar_xml'),
+    path('consolidado_notas_fiscais/',viewsOperacional.importar_xml,name='consolidado_notas_fiscais'),
 
     path('api/get_documentos/',viewsOperacional.get_documentos,name='get_documentos_app_moto' ),
     path('api/login_motorista/',viewsOperacional.login_app_motorista,name='login' ),

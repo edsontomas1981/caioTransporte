@@ -11,7 +11,7 @@
  * @param {number} [itensPorPagina=10] - O número de itens a serem exibidos por página (padrão é 10).
  * @returns {HTMLLIElement} - Um elemento li contendo o botão de paginação.
  */
-const createPaginationButton = (iconClass, page, totalPages, isActive = false, divParaNavegacao, idTbody, dados, botoes,itensPorPagina = 10) => {
+const createPaginationButton = (iconClass, page, totalPages, isActive = false, divParaNavegacao, idTbody, dados, botoes,itensPorPagina = 10,addCheckbox) => {
   const li = document.createElement("li");
   li.className = `page-item ${isActive ? "active" : ""}`;
 
@@ -28,7 +28,7 @@ const createPaginationButton = (iconClass, page, totalPages, isActive = false, d
   if (page > 0 && page <= totalPages) {
     a.addEventListener("click", function () {
       // Certifique-se de que 'dados' e 'botoes' estejam no escopo correto
-      popula_tbody_paginacao(divParaNavegacao, idTbody, dados, botoes, page,itensPorPagina,true,false);
+      popula_tbody_paginacao(divParaNavegacao, idTbody, dados, botoes, page,itensPorPagina,addCheckbox,false);
     });
   }
 
@@ -136,17 +136,17 @@ const popula_tbody_paginacao = async (divParaNavegacao, id_tbody, dados, botoes 
   paginationContainer.className = "pagination flex-wrap";
 
   // Adiciona botão "Anterior" à paginação
-  const previousButton = createPaginationButton("ti-angle-left", paginaAtual - 1, totalPages, false, divParaNavegacao, id_tbody, dados, botoes, itensPorPagina);
+  const previousButton = createPaginationButton("ti-angle-left", paginaAtual - 1, totalPages, false, divParaNavegacao, id_tbody, dados, botoes, itensPorPagina,addCheckbox);
   paginationContainer.appendChild(previousButton);
 
   // Adiciona botões numéricos à paginação
   for (let i = 1; i <= totalPages; i++) {
-    const numericButton = createPaginationButton(null, i, totalPages, i === paginaAtual, divParaNavegacao, id_tbody, dados, botoes, itensPorPagina);
+    const numericButton = createPaginationButton(null, i, totalPages, i === paginaAtual, divParaNavegacao, id_tbody, dados, botoes, itensPorPagina,addCheckbox);
     paginationContainer.appendChild(numericButton);
   }
 
   // Adiciona botão "Próximo" à paginação
-  const nextButton = createPaginationButton("ti-angle-right", paginaAtual + 1, totalPages, false, divParaNavegacao, id_tbody, dados, botoes, itensPorPagina);
+  const nextButton = createPaginationButton("ti-angle-right", paginaAtual + 1, totalPages, false, divParaNavegacao, id_tbody, dados, botoes, itensPorPagina,addCheckbox);
   paginationContainer.appendChild(nextButton);
 
   // Adiciona o elemento de paginação à div de navegação

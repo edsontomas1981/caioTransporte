@@ -37,6 +37,10 @@ def upload_xml(request):
                 ide = infNFe.find('ns:ide', ns)
                 emit = infNFe.find('ns:emit', ns)
                 dest = infNFe.find('ns:dest', ns)
+                total = infNFe.find('ns:total', ns)
+                transp = infNFe.find('ns:transp', ns)
+
+
                 
                 data = {
                     'filename': xml_file.name,
@@ -60,7 +64,13 @@ def upload_xml(request):
                         'indFinal': get_element_text(ide, 'ns:indFinal', ns),
                         'indPres': get_element_text(ide, 'ns:indPres', ns),
                         'procEmi': get_element_text(ide, 'ns:procEmi', ns),
-                        'verProc': get_element_text(ide, 'ns:verProc', ns)
+                        'verProc': get_element_text(ide, 'ns:verProc', ns),
+                        'volume': get_element_text(ide, 'ns:volume', ns),
+                        'peso': get_element_text(ide, 'ns:peso', ns),
+                        'valorNF': get_element_text(total.find('ns:ICMSTot', ns), 'ns:vNF', ns),
+                        'volume': get_element_text(transp.find('ns:vol', ns), 'ns:qVol', ns),
+                        'peso': get_element_text(transp.find('ns:vol', ns), 'ns:pesoB', ns),
+                        'valorNF': get_element_text(total.find('ns:ICMSTot', ns), 'ns:vNF', ns),
                     },
                     'emit': {
                         'CNPJ': get_element_text(emit, 'ns:CNPJ', ns),

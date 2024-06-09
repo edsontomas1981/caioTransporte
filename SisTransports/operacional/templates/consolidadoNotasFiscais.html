@@ -1,0 +1,196 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block 'conteudo'%}
+    <div class="row mt-5 container-fluid">
+        <div class="table-responsive">
+            <h3 class="font-weight-bold">Notas Fiscais</h3>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nota Fiscal</th>
+                  <th>Remetente</th>
+                  <th>Destinatário</th>
+                  <th>Origem</th>
+                  <th>Destino</th>
+                  <th>Volumes</th>
+                  <th>Peso</th>
+                  <th>R$</th>
+                  <th>Status</th>
+                  <th></th>
+                  <th></th>
+                 </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15547</td>
+                  <td>Alfa Tecnologia</td>
+                  <td>Beta Industrias</td>
+                  <td>Barueri</td>
+                  <td>São Paulo</td>
+                  <td>5</td>
+                  <td>137</td>
+                  <td>R$ 1.200,00</td>
+                  <td><label class="badge badge-danger">Pendente</label></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon">
+                      <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
+                      <i class="ti-trash"></i>
+                    </button>
+                  </td>                  
+                </tr>
+                <tr>
+                  <td>15548</td>
+                  <td>Gamma Solutions</td>
+                  <td>Delta Corp</td>
+                  <td>Santos</td>
+                  <td>São Paulo</td>
+                  <td>3</td>
+                  <td>150</td>
+                  <td>R$ 2.500,00</td>
+                  <td><label class="badge badge-success">Sucesso</label></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon">
+                      <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
+                    <i class="ti-trash"></i>
+                    </button>
+                  </td>                    
+                </tr>
+                <tr>
+                  <td>15549</td>
+                  <td>Epsilon Innovations</td>
+                  <td>Zeta Manufacturing</td>
+                  <td>Campinas</td>
+                  <td>São Paulo</td>
+                  <td>10</td>
+                  <td>200</td>
+                  <td>R$ 3.800,00</td>
+                  <td><label class="badge badge-warning">Em Progresso</label></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon">
+                      <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
+                    <i class="ti-trash"></i>
+                    </button>
+                  </td>                    
+                </tr>
+                <tr>
+                  <td>15550</td>
+                  <td>Theta Tech</td>
+                  <td>Iota Enterprises</td>
+                  <td>Jundiaí</td>
+                  <td>São Paulo</td>
+                  <td>8</td>
+                  <td>175</td>
+                  <td>R$ 4.500,00</td>
+                  <td><label class="badge badge-danger">Pendente</label></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon">
+                      <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
+                    <i class="ti-trash"></i>
+                    </button>
+                  </td>                    
+                </tr>
+                <tr>
+                  <td>15551</td>
+                  <td>Kappa Systems</td>
+                  <td>Lambda Services</td>
+                  <td>Sorocaba</td>
+                  <td>São Paulo</td>
+                  <td>6</td>
+                  <td>160</td>
+                  <td>R$ 2.100,00</td>
+                  <td><label class="badge badge-success">Sucesso</label></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon">
+                      <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
+                      <i class="ti-trash"></i>
+                    </button>
+                  </td>                    
+                </tr>
+                <tr>
+                  <td>15552</td>
+                  <td>Mu Technologies</td>
+                  <td>Nu Logistics</td>
+                  <td>São José dos Campos</td>
+                  <td>São Paulo</td>
+                  <td>12</td>
+                  <td>220</td>
+                  <td>R$ 5.000,00</td>
+                  <td><label class="badge badge-warning">Em Progresso</label></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon">
+                      <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
+                    <i class="ti-trash"></i>
+                    </button>
+                  </td>                    
+                </tr>
+                <tr>
+                  <td>15553</td>
+                  <td>Xi Innovations</td>
+                  <td>Omicron Enterprises</td>
+                  <td>Ribeirão Preto</td>
+                  <td>São Paulo</td>
+                  <td>4</td>
+                  <td>145</td>
+                  <td>R$ 1.700,00</td>
+                  <td><label class="badge badge-danger">Pendente</label></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon">
+                      <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
+                    <i class="ti-trash"></i>
+                    </button>
+                  </td>                    
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        <!-- <div class="col-sm-6">
+            <h3 class="font-weight-bold">Importar Notas Fiscais</h3>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="xmlFilesInput">Enviar</label>
+                <input type="file" class="form-control" id="xmlFilesInput" onchange="uploadXMLFiles()" multiple>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h3 class="font-weight-bold">Importar Notas Fiscais</h3>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="xmlFilesInput">Enviar</label>
+                <input type="file" class="form-control" id="xmlFilesInput" onchange="uploadXMLFiles()" multiple>
+            </div>
+        </div> -->
+    </div>
+
+{% endblock %} 
+{% block 'js' %} 
+    <script src="{% static 'js/meusJS/xmls/uploadXml.js' %}"></script>
+{% endblock %} 

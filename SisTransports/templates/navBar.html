@@ -4,10 +4,10 @@
 
     </div>
     <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white p-0 altura-navbar">
-        <a class="navbar-brand mr-4" href="#">
-            <div>
-                <span><img src="{% static 'images/favicon.png' %}" class="float-start mt-0" alt="logo"><strong class="text-primary pl-2 mt-3"> SisTransports</strong></span>
-            </div>
+        <a class="navbar-brand mr-4" href="/">
+          <div>
+            <span href="/"><img src="{% static 'images/favicon.png' %}" class="float-start mt-0" alt="logo"><strong class="text-primary pl-2 mt-3"> SisTransports</strong></span>
+          </div>
         </a>
         <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -115,32 +115,45 @@
                                                 <span class="fas fa-file-alt icone-menu"></span>
                                             </div>
                                             <div class="d-flex flex-column">
-                                                <a class="dropdown-item" href="/operacional/importar_xml/">
-                                                    <h6 class="mb-0">Notas Fiscais</h6>
-                                                    <small class="text-muted">Importar Notas Fiscais</small>
+                                                <a class="dropdown-item" onclick="openModal('modalImportaNfs')">
+                                                    <h6 class="mb-0">Importar Notas Fiscais</h6>
+                                                    <small class="text-muted">Selecionar e Importar</small>
                                                 </a>
-                                            </div>                                            
+                                            </div>       
                                         </div>
                                     </div>
                                     <div class="row d-flex">
-                                        <div class="input-group-append">
-                                            <div class="fa-icon text-center">
-                                                <span class="fas fa-shipping-fast icone-menu"></span>
-                                            </div>
-                                            <div class="d-flex flex-column">
-                                                <a class="dropdown-item" href="/operacional/manifesto/">
-                                                    <h6 class="mb-0">Manifestos</h6>
-                                                    <small class="text-muted">Manifestos</small>
-                                                </a>
-                                            </div>                                            
-                                        </div>
-                                    </div>
+                                      <div class="input-group-append">
+                                          <div class="fa-icon text-center">
+                                              <span class="fa fa-book icone-menu"></span>
+                                          </div>
+                                          <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="/operacional/consolidado_notas_fiscais/">
+                                              <h6 class="mb-0">Ver Notas Fiscais</h6>
+                                              <small class="text-muted">Exibir Tabela</small>
+                                            </a>                
+                                          </div>      
+                                      </div>
+                                  </div>
+                                  <div class="row d-flex">
+                                      <div class="input-group-append">
+                                          <div class="fa-icon text-center">
+                                              <span class="fas fa-shipping-fast icone-menu"></span>
+                                          </div>
+                                          <div class="d-flex flex-column">
+                                              <a class="dropdown-item" href="/operacional/manifesto/">
+                                                  <h6 class="mb-0">Manifestos</h6>
+                                                  <small class="text-muted">Manifestos</small>
+                                              </a>
+                                          </div>                                            
+                                      </div>
+                                  </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comercial</a>
                     <div class="dropdown-menu" id="dropdown-menu1" aria-labelledby="navbarDropdown1">
                         <div class="container">
@@ -163,13 +176,13 @@
                             </div>
                         </div>
                     </div>
-                </li>                
+                </li>                 -->
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Processos</a>
                     <div class="dropdown-menu" id="dropdown-menu2" aria-labelledby="navbarDropdown2">
                         <div class="container">
                             <div class="row">
-                                <div class="row d-flex tab">
+                                <!-- <div class="row d-flex tab">
                                     <div class="row d-flex">
                                         <div class="input-group-append">
                                             <div class="fa-icon text-center">
@@ -183,7 +196,7 @@
                                             </div>                                            
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row d-flex tab">
                                     <div class="row d-flex">
                                         <div class="input-group-append">
@@ -193,7 +206,7 @@
                                             <div class="d-flex flex-column">
                                                 <a class="dropdown-item" href="/operacional/roteirizacao_coletas/">
                                                     <h6 class="mb-0" >Planejamento e Acompanhamento</h6>
-                                                    <small class="text-muted">Coletas e Entregas</small>
+                                                    <small class="text-muted">Entregas</small>
                                                 </a>
                                             </div>                                            
                                         </div>
@@ -209,7 +222,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="row d-flex tab">
-                                    <div class="row d-flex">
+                                    <!-- <div class="row d-flex">
                                         <div class="input-group-append">
                                             <div class="fa-icon text-center">
                                                 <span class="fa fa-files-o icone-menu"></span>
@@ -221,7 +234,7 @@
                                                 </a>
                                             </div>                                            
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="row d-flex tab">
                                     <div class="row d-flex">
@@ -231,8 +244,8 @@
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <a class="dropdown-item">
-                                                    <h6 class="mb-0">Cte</h6>
-                                                    <small class="text-muted">Relatórios Cte's</small>
+                                                    <h6 class="mb-0">Entregas</h6>
+                                                    <small class="text-muted">Relatórios de Entregas</small>
                                                 </a>
                                             </div>                                            
                                         </div>
@@ -242,7 +255,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Impressão</a>
                     <div class="dropdown-menu" id="dropdown-menu3" aria-labelledby="navbarDropdown3">
                         <div class="container">
@@ -276,7 +289,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>

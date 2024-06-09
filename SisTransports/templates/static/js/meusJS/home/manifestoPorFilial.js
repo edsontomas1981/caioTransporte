@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         title: {
             display: true,
-            text: 'Coletas',
+            text: 'Atrasos',
             fontSize:16,
             fontColor: 'white',
 

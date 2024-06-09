@@ -1,10 +1,10 @@
 
 
 var areaData = {
-    labels: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+    labels: ["Dom","Seg","Ter","Qua","Qui","Sex","Sab"],
     datasets: [
     {
-        data: [10, 20, 15, 40, 35, 60, 20, 80, 90, 70, 90, 120],
+        data: [10, 20, 15, 40, 35, 60, 20],
         borderColor: [
         '#4747A1'
         ],
@@ -13,7 +13,7 @@ var areaData = {
         label: "Orders"
     },
     {
-        data: [11, 45, 31, 57, 31, 49, 25, 81, 50, 21, 90, 121],
+        data: [11, 45, 31, 57, 31, 49, 25],
         borderColor: [
         '#F09397'
         ],
@@ -22,7 +22,7 @@ var areaData = {
         label: "Downloads"
     },
     {
-        data: [12, 42, 20, 98, 52, 80, 72, 82, 45, 50, 80, 122],
+        data: [12, 42, 20, 98, 52, 80, 72],
         borderColor: [
         '#F09498'
         ],
@@ -31,7 +31,7 @@ var areaData = {
         label: "Downloads"
     },
     {
-        data: [13, 44, 89, 87, 30, 63, 49, 90, 89, 10, 50, 12],
+        data: [13, 44, 89, 87, 30, 63, 49],
         borderColor: [
         '#F01390'
         ],
@@ -101,7 +101,7 @@ var areaOptions = {
 
 document.addEventListener('DOMContentLoaded', function() {
    // Obtém o contexto do canvas
-   var ctx = document.getElementById('coletasPorFilial').getContext('2d');
+   var ctx = document.getElementById('entregasPorVeiculo').getContext('2d');
     // Configurações do gráfico
     var options = {
         scales: {
@@ -126,8 +126,5 @@ document.addEventListener('DOMContentLoaded', function() {
         data: areaData,
         options: areaOptions
     });
-
-
-
 })
 

@@ -1,32 +1,14 @@
 // Define os dados do gráfico
 var dataAvarias = {
-    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
     datasets: [{
         label: 'Matriz',
-        data: [12, 19, 3, 5, 2, 0, 0, 0, 0, 0, 0, 0],
+        data: [0, 19, 3, 15, 2, 13, 0],
         // backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'red',
         borderWidth: 3,
         fill: false, // Desativa o preenchimento da área
         context:{'teste':'teste3'},
-    },
-    {
-        label: 'Filial 1 ',
-        data: [0, 0, 0, 0, 0, 5, 8, 12, 15, 10, 8, 4], // Dados fictícios, substitua pelos seus dados
-        // backgroundColor: 'rgba(255, 99, 132, 0.2)', // Cor de fundo
-        borderColor: 'blue', // Cor da borda
-        borderWidth: 3,
-        context:{'teste':'teste3'},
-        fill: false // Desativa o preenchimento da área
-    },
-    {
-    label: 'Filial 1 ',
-    data: [0, 0, 0, 0, 0, 10, 16, 24, 30, 20, 4, 2], // Dados fictícios, substitua pelos seus dados
-    // backgroundColor: 'rgba(255, 99, 132, 0.2)', // Cor de fundo
-    borderColor: 'green', // Cor da borda
-    borderWidth: 3,
-    context:{'teste':'teste3'},
-    fill: false // Desativa o preenchimento da área
     }],
     
 };
@@ -43,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         title: {
             display: true,
-            text: 'Avarias'
+            text: 'Tempo Médio de Entrega'
         },
         legend: {
             position: 'right' // Define a posição da legenda para 'direita'
@@ -56,8 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         data: dataAvarias,
         options: options
     });
-
-
-
 })
+
+
 

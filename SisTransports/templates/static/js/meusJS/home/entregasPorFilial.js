@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         title: {
             display: true,
-            text: 'Desempenho de Entregas por Filial',
+            text: '',
             fontSize:16,
             fontColor: 'black',
         },

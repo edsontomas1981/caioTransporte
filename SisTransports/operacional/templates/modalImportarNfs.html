@@ -1,0 +1,47 @@
+<!-- Modal -->
+  <div class="modal fade" id="modalImportaNfs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Importar Notas Fiscais</h5>
+          <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h3 class="font-weight-bold">Importar Notas Fiscais</h3>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="xmlFilesInput">Enviar</label>
+                <input type="file" class="form-control" id="xmlFilesInput" onchange="uploadXMLFiles()" multiple>
+            </div>
+            <div class="grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div id="paginacaoImportacaoNF">
+                    
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Nota Fiscal</th>
+                          <th>Remetente</th>
+                          <th>Destinatário</th>
+                          <th>Origem</th>
+                          <th>Destino</th>
+                          <th>Volumes</th>
+                          <th>Peso</th>
+                          <th>R$</th>
+                        </tr>
+                      </thead>
+                      <tbody id="notasImportadas">
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

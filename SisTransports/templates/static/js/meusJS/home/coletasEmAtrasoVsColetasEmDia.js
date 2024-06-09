@@ -1,8 +1,8 @@
 var atrasoVsEmDia = {
-    labels: ['Atraso', 'Em Dia'],
+    labels: ['Sucesso', 'Devoluções', 'Avarias','Outros'],
     datasets: [{
-        data: [10, 90], // Valores percentuais ou absolutos para cada fatia
-        backgroundColor: ['#FF4747','#57B657'], // Cores das fatias
+        data: [80,10,8,2 ], // Valores percentuais ou absolutos para cada fatia
+        backgroundColor: ['#57B657','#FF4747',' #FFA500','#808080'], // Cores das fatias
         borderColor: 'white', // Defina a cor da borda desejada
         borderWidth: 1,
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         title: {
             display: true,
-            text: 'Coletas',
+            text: 'Sucesso de Entregas por Mês',
             fontSize:16,
             fontColor: 'white',
 
