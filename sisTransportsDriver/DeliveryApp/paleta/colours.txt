@@ -1,0 +1,13 @@
+Warna Dominan : #15546c 
+
+Palet Warna : 
+ - #addd4f 
+ - #14546c 
+ - #d9dadc 
+ - #a46e5c 
+ - #41569c 
+ - #302b2d 
+ - #7cb355 
+ - #6b956d 
+ - #6a636d 
+ - #7a88be 

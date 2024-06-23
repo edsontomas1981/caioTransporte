@@ -9,7 +9,7 @@ def registrar_usuario(request):
         if not request.user.is_authenticated:
             return render(request,'register.html',)
         else: 
-            return redirect('/')
+            return render(request,'register.html',)
     elif request.method == 'POST':
         username = request.POST.get('nome')
         email = request.POST.get('email')

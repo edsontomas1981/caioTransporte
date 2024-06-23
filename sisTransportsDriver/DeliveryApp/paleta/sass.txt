@@ -1,0 +1,11 @@
+$clr-itp-primary: #15546c;
+$clr-itp-1: #addd4f; 
+$clr-itp-2: #14546c; 
+$clr-itp-3: #d9dadc; 
+$clr-itp-4: #a46e5c; 
+$clr-itp-5: #41569c; 
+$clr-itp-6: #302b2d; 
+$clr-itp-7: #7cb355; 
+$clr-itp-8: #6b956d; 
+$clr-itp-9: #6a636d; 
+$clr-itp-10: #7a88be; 

@@ -12,23 +12,27 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Este aplicativo usa sua localização para ...",
+        "NSLocationAlwaysUsageDescription": "Este aplicativo precisa da sua localização em segundo plano para ..."
+      }
     },
     "android": {
       "permissions": [
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION",
         "ACCESS_BACKGROUND_LOCATION"
-      ]
-    },
-    "ios": {
-      "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Este aplicativo usa sua localização para ...",
-        "NSLocationAlwaysUsageDescription": "Este aplicativo precisa da sua localização em segundo plano para ..."
-      }
+      ],
+      "package": "com.edsontomas.DeliveryApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4aef1ce1-c088-46c0-be9a-0ca1f925a7ca"
+      }
+    },
+    "owner": "edsontomas"
   }
 }

@@ -9,7 +9,7 @@ const MainScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = 'http://192.168.15.42:8000/operacional/api/get_documentos/';
+    const url = 'http://192.168.1.123:8000/appMotoristas/get_documentos/';
     fetchData(url, handleData, setLoading);
   }, []);
 
