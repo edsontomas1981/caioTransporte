@@ -24,10 +24,6 @@ function HomeStack() {
 }
 
 export default function App() {
-  useEffect(() => {
-    startLocationUpdates();
-  }, []);
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LoginScreen">

@@ -14,14 +14,10 @@
       }
     },
     "production": {
-      "ios": {
-        "buildType": "release"
-      },
+      "ios": {},
       "android": {
         "buildType": "apk"
       }
     }
-  "submit": {
-    "production": {}
   }
 }
